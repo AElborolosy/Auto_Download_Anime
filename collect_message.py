@@ -25,7 +25,8 @@ def generate_message_list(search_result):
 
     msg_list = []
     for row in range(one_bot.shape[0]):
-        message = "/msg {bot} xdcc send #{pack}".format(bot=packlist_df.loc[row, 'Bot'],
+        message = "\n{F}\t/msg {bot} xdcc send #{pack}".format(F=packlist_df.loc[row, 'Filename'],
+                                                        bot=packlist_df.loc[row, 'Bot'],
                                                         pack=packlist_df.loc[row, 'Pack'])
         msg_list.append(message)
     return msg_list
