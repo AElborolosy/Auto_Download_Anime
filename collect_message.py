@@ -25,7 +25,7 @@ def generate_message_list(search_result):
 
     msg_list = []
     for row in range(one_bot.shape[0]):
-        message = "\n{F}\t/msg {bot} xdcc send #{pack}".format(F=packlist_df.loc[row, 'Filename'],
+        message = "\n{F}\n/msg {bot} xdcc send #{pack}".format(F=packlist_df.loc[row, 'Filename'],
                                                         bot=packlist_df.loc[row, 'Bot'],
                                                         pack=packlist_df.loc[row, 'Pack'])
         msg_list.append(message)
@@ -35,7 +35,7 @@ def generate_message_list(search_result):
 # Given the name of an anime (string), searches the pack list for it.
 def query_horrible_subs(anime):
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome('selenium//webdriver//chrome//chromedriver')
     driver.get('http://xdcc.horriblesubs.info')
 
     # Search the packlist for the desired anime. Wait for results to load.
